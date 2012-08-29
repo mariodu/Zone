@@ -19,7 +19,7 @@
       %li{:class => (controller_name == 'search' ? 'active' : nil)}
         = link_to t('.search'), "search_path"
     %ul.nav.nav-pills.pull-right
-      - if true || logined?
+      - if false and logined?
         %li.dropdown
           %a{:href => "person_path(:name => current_user)", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
             = "current_user.name"
@@ -37,6 +37,9 @@
             %li
               = link_to t('logout'), "logout_path", :method => :delete
       - else
+        %li
+          %a{:href => "person_path(:name => current_user)", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
+            %img{:src => "http://wiki.dev.renren.com/mediawiki/images/a/a2/%E8%BF%9E%E6%8E%A5%E6%8C%89%E9%92%AE2_%E8%93%9D%E8%89%B2133x22.png"}
         %li
           = link_to t('signup'), "signup_path"
         %li
