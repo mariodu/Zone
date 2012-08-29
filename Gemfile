@@ -6,6 +6,8 @@ gem 'sqlite3'
 gem 'devise'
 #gem "redcarpet"
 #gem "wmd-rails"
+gem 'twitter-bootstrap-rails'
+gem 'haml'
 gem "rails-i18n"
 gem 'jquery-rails'
 

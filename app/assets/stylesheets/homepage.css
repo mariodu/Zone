@@ -1,0 +1,25 @@
+#home-show-modules{}
+#home-show-modules ul{list-style:none;padding:0px;margin:0px;display:block;overflow:auto;padding-top:10px;}
+#home-show-modules ul li{list-style:none;float:left;margin:10px 18px;padding:3px;border:1px solid #aab3ba;position:relative;overflow:hidden;}
+#home-show-modules ul li img{display:block;}
+#home-show-modules ul li p{position:absolute;width: 254px;height: 106px;background-color:#FFF;opacity:0.9;filter:Alpha(Opacity=90);left:-1px;margin:1px;}
+#home-show-modules ul li p .pt{display:block;margin:5px 10px;font-size:14px;font-weight:bold;font-family:Microsoft YaHei,'微软雅黑', '黑体'; color:#223442;}
+#home-show-modules ul li p .pc{display:block;margin:0 10px;line-height:1.5;}
+#home-show-modules a{color:#000;}
+#home-show-modules a:hover{color:#666;}
+
+#home-show-func{background-color:#81b2df;height: 350px;}
+.home-show-func-head{overflow:hidden;position:relative;height: 306px;padding-bottom:10px;}
+.home-show-func-item{overflow:auto;position:absolute;width: 820px;top:0px;padding:10px 40px;}
+.home-show-func-item-left{float:left;width: 400px;}
+.home-show-func-head h1{font-family:Microsoft YaHei,'微软雅黑', '黑体'; color:#093f68;font-size:30px;margin:15px 0;}
+.home-show-func-head h2{font-family:Microsoft YaHei,'微软雅黑', '黑体'; color:#2a2a2a;font-size:16px;margin:10px 0 0 0;}
+.home-show-func-head ul{margin:0;padding:18px 0; width: 380px;}
+.home-show-func-head ul li{color:#333;list-style:none;line-height:1.5; }
+.home-show-func-item-right{float:right; }
+.chead_expbtn{width: 160px;height: 65px;background: transparent url(sprite.png) no-repeat scroll 0 -16px;display:block;}
+.chead_expbtn_red{width: 160px;height: 65px;background: transparent url(sprite.png) no-repeat scroll 0 -213px;display:block;}
+.home-show-func-tabs{}
+.home-show-func-tabs div{margin:auto;margin-top:5px;}
+.home-show-func-tabs span{background: transparent url(sprite.png) no-repeat scroll 0 -160px;width: 16px;height: 16px;display:block;float:left;margin-right:5px;cursor:pointer;}
+.home-show-func-tabs .on{background-position: -20px -160px;cursor:auto;}

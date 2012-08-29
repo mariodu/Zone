@@ -1,0 +1,71 @@
+= javascript_include_tag "homepage"
+#main
+  .container
+    #home-show-func
+      .home-show-func-head
+        .home-show-func-item
+          .home-show-func-item-left
+            %h1 爱库网
+            %h2 发现、整理、分享您的网络资源
+            %ul
+              %li
+                爱库网是一个用于整理（collect），组织（organize），分享（share）任何互联网上面的网站、图片、视频等资源的在线服务，并且致力于让用户发现（discover）更多有意思的互联网资源。
+                %br
+                  %br/
+              %li 像桌面管理工具一样管理互联网上各种资源的服务。
+            %a.chead_expbtn_red{:href => "http://ikeepu.com", :target => "_blank", :title => "立即体验"}
+          .home-show-func-item-right
+            %img{:src => "/assets/someyi1.jpg"}/
+        .home-show-func-item{:style => "display:none;"}
+          .home-show-func-item-left
+            %h1 Como JS 1.2.2版
+            %h2 简易而功能强大的Javascript框架
+            %ul
+              %li 对原生对象如String扩展常用函数
+              %li 支持类的声明与继承，简易Ajax
+              %li 简约而快速的CSS选择器
+              %li 高效、易操作的动画执行
+              %li 强大的JS包扩展机制，支持CSS按需加载
+              %li 非侵入式切换调用，与第三方框架并存
+            %a.chead_expbtn{:href => "/como", :title => "立即体验"}
+          .home-show-func-item-right
+            %img{:src => "/assets/someyi1.jpg"}/
+        .home-show-func-item{:style => "display:none;"}
+          .home-show-func-item-left
+            %h1 尚译 1.0 正式版
+            %h2 网页快速划词翻译工具
+            %ul
+              %li 浏览器书签保存，无需安装，能上网就能翻译；
+              %li 采用Google翻译API，翻译准确率高；
+              %li 快速启动，鼠标划词翻译；
+              %li 支持非中文译中文，中文译英文；
+              %li 支持输入框文字划词翻译
+            %a.chead_expbtn_red{:href => "/someyi", :title => "立即体验"}
+          .home-show-func-item-right
+            %img{:src => "/assets/someyi1.jpg"}/
+      .home-show-func-tabs
+        %div{:style => "width:63px;"}
+          %span.on{:key => "0"}
+          %span{:key => "1"}
+          %span{:key => "2"}
+
+    #home-show-modules
+      %ul
+        %li{:onmouseout => "HomePage.showModules.out(this)", :onmouseover => "HomePage.showModules.over(this)"}
+          %img{:src => "/assets/1.jpg"}
+            %p{:style => "top: -107px; "}
+              %span.pt
+                %a{:href => "http://ikeepu.com", :target => "_blank"} 综合社区
+              %span.pc 综合社区是提供给大家的一个自由畅谈的社区，这里的朋友来自五湖四海，各个院校。结交朋友，了解其他校园，你准备好了么？
+        %li{:onmouseout => "HomePage.showModules.out(this)", :onmouseover => "HomePage.showModules.over(this)"}
+          %img{:src => "/assets/1.jpg"}
+            %p{:style => "top: -107px; "}
+              %span.pt
+                %a{:href => "/como"} 校园应用
+              %span.pc 校园应用给大家带来了更贴近自身校园的咨询和服务，致力于打造校园web的服务平台，丰富方便大家的学习生活，信息来源于广大用户，并服务于用户。
+        %li{:onmouseout => "HomePage.showModules.out(this)", :onmouseover => "HomePage.showModules.over(this)"}
+          %img{:src => "/assets/1.jpg"}
+            %p{:style => "top: -107px; "}
+              %span.pt
+                %a{:href => "/someyi"} 个人空间
+              %span.pc 这里为你营造了一个互联网上，完全属于自己的地方，公开或私密，你是100%的主人。每天对自己一句话；记下要做的事；更多功能等你发现！
