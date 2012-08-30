@@ -9,9 +9,15 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem "rails-i18n"
-gem 'jquery-rails'
+gem 'jquery-rails',             '2.0.2'
+
+gem 'omniauth'
+gem 'omniauth-renren'
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-stack_explorer'
   gem 'factory_girl_rails'
 end
 

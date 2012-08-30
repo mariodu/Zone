@@ -1,3 +1,12 @@
 zh-CN:
   signup: "注册"
-  login: "登录"
+  login:  "登录"
+  logout: "注销"
+  admin:  "管理"
+
+  home:   "首页"
+
+  user:
+    info:     "资料"
+    settings: "设置"
+    zone:     "空间"

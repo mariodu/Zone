@@ -170,9 +170,8 @@ table.item-list {
 }
 
 #topbar {
-  height: 60px;
   width:  100%;
-  padding-top:20px;
+  margin:30px 0 20px;
 
   li {
    font-weight: bold;
@@ -185,7 +184,7 @@ table.item-list {
 
   .logo {
     font-weight: bold;
-    font-size: 60px;
+    font-size: 40px;
     margin-right: 20px;
     color: white;
     margin-bottom: 15px;
