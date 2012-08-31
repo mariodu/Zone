@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'devise'
 #gem "redcarpet"
 #gem "wmd-rails"
+gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem "rails-i18n"

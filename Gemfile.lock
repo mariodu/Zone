@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/bcardarella/client_side_validations.git
+  revision: 2a4d5f431378b15d741687c5fc6691b630736528
+  specs:
+    client_side_validations (3.2.0.beta.6)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -168,6 +174,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  client_side_validations!
   coffee-rails
   devise
   factory_girl_rails

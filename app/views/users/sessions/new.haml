@@ -1,0 +1,25 @@
+#main
+  .container
+    .row
+      .span6.offset2
+        %section#login-form.box
+          = form_for(resource, :as => resource_name, :html => { :class => "form-horizontal" }, :url => session_path(resource_name)) do |f|
+            %fieldset
+              %legend= t 'login'
+              .control-group
+                = f.label :email, t('user.email'), :class => 'control-label'
+                .controls
+                  = f.text_field :email, :tabIndex => 1, :placeholder => "Email"
+              .control-group
+                = f.label :password, t('user.password'), :class => 'control-label'
+                .controls
+                  = f.password_field :password, :tabIndex => 2, :placeholder => "Password"
+              .control-group
+                .controls
+                  %label.checkbox
+                    = check_box_tag :remember_me, 'yes', false, :tabIndex => 3
+                    = t 'user.remember_me'
+              .form-actions
+                = submit_tag t('login'), :class => 'btn btn-primary', :tabIndex => 4
+
+              = render "devise/shared/links"
