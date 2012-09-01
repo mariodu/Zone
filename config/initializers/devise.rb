@@ -1,9 +1,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 require "omniauth-renren"
+
+Renren::Config.api_key = "3c6d6dc96bb54e22bb7547806448469d"
+Renren::Config.api_secret = "aba3ec8aa74147f48e9b176265728878"
+
 Devise.setup do |config|
 
-  config.omniauth :renren, "3c6d6dc96bb54e22bb7547806448469d", "aba3ec8aa74147f48e9b176265728878"
+  config.omniauth :renren, Renren::Config.api_key, Renren::Config.api_secret
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

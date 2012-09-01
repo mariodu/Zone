@@ -13,7 +13,8 @@ gem "rails-i18n"
 gem 'jquery-rails',             '2.0.2'
 
 gem 'omniauth'
-gem 'omniauth-renren'
+gem 'omniauth-renren', '~> 1.0.0.rc2', :git => 'git://github.com/huangxiangdan/omniauth-renren.git'
+gem 'renren'
 
 group :development, :test do
   gem 'pry'

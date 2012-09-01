@@ -29,7 +29,7 @@
             %li
               = link_to t('user.info'), "user_path(current_user)"
             %li
-              = link_to t('user.settings'), "settings_account_path"
+              = link_to t('user.settings'), edit_user_registration_path
             %li.divider
             %li
               = link_to t('user.zone'), "user_path(current_user)"
@@ -58,3 +58,4 @@
             %li
               %a{:href => user_omniauth_authorize_path(:renren)}
                 %img{:src => "http://wiki.dev.renren.com/mediawiki/images/a/a2/%E8%BF%9E%E6%8E%A5%E6%8C%89%E9%92%AE2_%E8%93%9D%E8%89%B2133x22.png"}
+    = display_notice_and_alert

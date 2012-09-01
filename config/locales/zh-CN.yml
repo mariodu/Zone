@@ -3,8 +3,12 @@ zh-CN:
   login:  "登录"
   logout: "注销"
   admin:  "管理"
-  choose_login: "选择登录方式"
-  local_login:  "本站帐号登录"
+  signup_legent: "注册新用户"
+  choose_login:  "选择登录方式"
+  local_login:   "本站帐号登录"
+  commit_signup_info: "提交注册信息"
+
+  do_right_now:  "现在就去"
 
   home:   "首页"
 
@@ -13,12 +17,21 @@ zh-CN:
     settings: "设置"
     zone:     "空间"
 
+    renren_authentication_success: "人人验证成功啦！"
+    consummate_info: "你需要设置密码和邮箱来完善你的资料，以后你就可以用本站帐号登录啦"
+
     name:                   "名字"
     email:                  "邮箱"
     password:               "密码"
     password_confirmation:  "重复密码"
+    public_email:           "公开邮箱"
     remember_me:            "记住我"
 
     validation_name_presence:    "请输入自己的真姓大名"
     validation_name_length:      "名字长度应该是2到4个字"
     validation_email_presence:   "请输入常用的邮箱"
+    validation_user_password_confirmation:  "两次输入的密码不一致"
+
+    form_helper:
+      name:  "这是你在网站上的昵称"
+      email: "保存以后就不可以改了哦！"
