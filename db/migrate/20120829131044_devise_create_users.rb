@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :public_email,      :null => false, :default => false
       t.string  :head_url,          :null => true
       t.string  :university,        :null => true
+      t.boolean :complete_info,   :null => false, :default => true
 
       ## Recoverable
       t.string   :reset_password_token

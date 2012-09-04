@@ -2,9 +2,16 @@ Zone::Application.routes.draw do
 
   devise_for :users,
     :controllers => {
-      :omniauth_callbacks => "users/omniauth_callbacks"
-    }
+    :omniauth_callbacks => "users/omniauth_callbacks",
+    :registrations => 'users/registrations'
+  }
 
+  resources :users do
+    collection do
+      get :complete_info
+      put :update_complete_info
+    end
+  end
   root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

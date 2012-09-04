@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "renren"
       session["renren.token"] = request.env['omniauth.auth']['credentials']['token']
-      flash[:special] = "flash_consummate_info"
+      flash[:special] = :flash_complete_info unless @user.complete_info
       sign_in_and_redirect @user, :event => :authentication
     else
       session["devise.renren_data"] = request.env["omniauth.auth"]

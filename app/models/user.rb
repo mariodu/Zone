@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :name, :authentications_attributes,
-                  :public_email, :head_url, :university
+                  :public_email, :head_url, :university, :complete_info
 
   has_many :authentications
   accepts_nested_attributes_for :authentications
@@ -20,11 +20,11 @@ class User < ActiveRecord::Base
     :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/},
     :presence   => { :message => I18n.t('user.validation_email_presence') },
     :uniqueness => { :case_sensitive => false }
-  validates :password,
+  validates :password,:on => :create,
     :presence   => true,
     :length     => {:minimum => 6, :allow_nil => true},
     :confirmation => {:message => I18n.t('user.validation_user_password_confirmation')}
-  validates :password_confirmation, :presence   => true
+  validates :password_confirmation, :presence   => true, :on => :create
 
   def self.find_for_renren_oauth(auth, signed_in_resource = nil)
     user = Authentication.find_by_provider_and_uid(auth.provider, auth.uid).try(:user)
@@ -68,6 +68,7 @@ class User < ActiveRecord::Base
       :password_confirmation => password,
       :head_url   => user_info['headurl'],
       :university => user_info['university_history'].last['name'],
+      :complete_info => false,
       :authentications_attributes => [
       Authentication.new(
         provider: auth.provider,

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120830044422) do
     t.boolean  "public_email",           :default => false, :null => false
     t.string   "head_url"
     t.string   "university"
+    t.boolean  "complete_info",          :default => true,  :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
