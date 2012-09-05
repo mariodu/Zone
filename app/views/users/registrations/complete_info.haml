@@ -4,8 +4,8 @@
     .row
       .span10.box
         %section#signup-form
-          = form_for @user, :url => update_complete_info_users_path, :html => { :class => "form-horizontal" }, :validate => true do |f|
-            %legend= t('signup_legent')
+          = form_for @user, :url => user_update_complete_info_path, :html => { :class => "form-horizontal" }, :validate => true do |f|
+            %legend= t('user.complete_info')
             .control-group
               = f.label :email, t('user.email'), :class => 'control-label'
               .controls
@@ -20,4 +20,4 @@
               .controls
                 = f.password_field :password_confirmation, :placeholder => "Password"
               .form-actions
-                = f.submit t('commit_signup_info'), :class => 'btn btn-primary'
+                = f.submit t('user.complete_info'), :class => 'btn btn-primary'

@@ -1,25 +1,30 @@
 zh-CN:
+  home:   "首页"
+
   signup: "注册"
   login:  "登录"
   logout: "注销"
   admin:  "管理"
-  signup_legent: "注册新用户"
-  edit_legent:   "修改资料"
+
   choose_login:  "选择登录方式"
   local_login:   "本站帐号登录"
-  commit_signup_info: "提交注册信息"
 
   do_right_now:  "现在就去"
-
-  home:   "首页"
 
   user:
     info:     "资料"
     settings: "设置"
     zone:     "空间"
 
+    signup:         "注册新用户"
+    commit_signup_info: "提交注册信息"
+
+    edit_info:      "修改资料"
+    edit_password:  "修改密码"
+
     renren_authentication_success: "人人验证成功啦！"
-    complete_info: "你需要设置密码和邮箱来完善你的资料，以后你就可以用本站帐号登录啦"
+    complete_info:             "完善资料"
+    complete_info_description: "你需要设置密码和邮箱来完善你的资料，以后你就可以用本站帐号登录啦"
 
     name:                   "名字"
     email:                  "邮箱"

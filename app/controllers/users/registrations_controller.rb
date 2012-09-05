@@ -1,18 +1,49 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_filter :user_complete_info?, :only => [:update_complete_info, :complete_info]
+
   def update
-    binding.pry
     @user = User.find(current_user.id)
     params[:user].delete(:email) if params[:user][:email]
-    successfully_updated = if params[:user][:password]
-      @user.update_with_password(params[:user])
-    else
-      @user.update_without_password(params[:user])
-    end
-
-    if successfully_updated
+    if @user.update_without_password(params[:user])
       sign_in @user, :bypass => true
+      redirect_to :root
     else
       render :edit
     end
+  end
+
+  def edit_password
+    @user = current_user
+  end
+
+  def update_password
+    @user = User.find(current_user.id)
+    if @user.update_with_password(params[:user])
+      sign_in @user, :bypass => true
+      redirect_to :root
+    else
+      render :edit_password
+    end
+  end
+
+  def complete_info
+    @user = current_user
+    @user.email = ""
+  end
+
+  def update_complete_info
+    @user = User.find(current_user.id)
+    if current_user.update_attributes(params[:user].merge(:complete_info => true))
+      sign_in(@current_user, :bypass => true)
+      redirect_to :root
+    else
+      render :complete_info
+    end
+  end
+
+  private
+
+  def user_complete_info?
+    redirect_to :root if current_user.complete_info
   end
 end

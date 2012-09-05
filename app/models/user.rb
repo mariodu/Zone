@@ -14,15 +14,15 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
 
   validates :name,
-    :presence   => { :message => I18n.t('user.validation_name_presence') },
-    :length     => { :message => I18n.t('user.validation_name_length'), :in => 2..4}
+    :presence     => { :message => I18n.t('user.validation_name_presence') },
+    :length       => { :message => I18n.t('user.validation_name_length'), :in => 2..4}
   validates :email,
-    :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/},
-    :presence   => { :message => I18n.t('user.validation_email_presence') },
-    :uniqueness => { :case_sensitive => false }
-  validates :password,:on => :create,
-    :presence   => true,
-    :length     => {:minimum => 6, :allow_nil => true},
+    :format       => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/},
+    :presence     => { :message => I18n.t('user.validation_email_presence') },
+    :uniqueness   => { :case_sensitive => false }
+  validates :password, :on => :create,
+    :presence     => true,
+    :length       => {:minimum => 6, :allow_nil => true},
     :confirmation => {:message => I18n.t('user.validation_user_password_confirmation')}
   validates :password_confirmation, :presence   => true, :on => :create
 

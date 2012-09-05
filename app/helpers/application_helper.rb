@@ -3,7 +3,7 @@ module ApplicationHelper
   def display_notice_and_alert
     return send(flash[:special]) if flash[:special]
     msg = ''
-    msg << (content_tag :div, notice, :class => "alert alert-block alert-error fade in") if notice
+    msg << (content_tag :div, notice, :class => "alert alert-block alert-success fade in") if notice
     msg << (content_tag :div, alert, :class => "alert alert-block alert-error fade in") if alert
     sanitize msg
   end
