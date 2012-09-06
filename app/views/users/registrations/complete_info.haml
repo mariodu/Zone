@@ -4,7 +4,7 @@
     .row
       .span10.box
         %section#signup-form
-          = form_for @user, :url => user_update_complete_info_path, :html => { :class => "form-horizontal" }, :validate => true do |f|
+          = form_for @user, :url => users_update_complete_info_path, :html => { :class => "form-horizontal" }, :validate => true do |f|
             %legend= t('user.complete_info')
             .control-group
               = f.label :email, t('user.email'), :class => 'control-label'

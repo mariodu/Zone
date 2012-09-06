@@ -6,22 +6,18 @@
       %li{:class => (controller_name == 'home' ? 'active' : nil)}
         = link_to t('home'), root_path
       %li.dropdown{:class => (controller_name == 'topics' ? 'active' : nil)}
-        %a{:href => "topics_path", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
+        %a{:href => "#", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
           = t('.topics')
           %b.caret
         %ul.dropdown-menu
           %li= link_to t('.active'), "topics_path"
           %li= link_to t('.newest'), "newest_topics_path"
-          - if true || logined?
-            %li= link_to t('.marked'), "marked_topics_path"
-            %li= link_to t('.my'), "my_topics_path"
-            %li= link_to t('.replied'), "replied_topics_path"
       %li{:class => (controller_name == 'search' ? 'active' : nil)}
         = link_to t('.search'), "search_path"
     %ul.nav.nav-pills.pull-right
       - if user_signed_in?
         %li.dropdown
-          %a{:href => "/", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
+          %a{:href => "#", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
             %i.icon-user
             = current_user.name
             %b.caret
@@ -38,7 +34,7 @@
             - unless current_user.complete_info
               %li.divider
               %li
-                = link_to t('user.complete_info'), user_complete_info_path
+                = link_to t('user.complete_info'), users_update_complete_info_path
             - if current_user.admin?
               %li.divider
               %li
@@ -46,13 +42,8 @@
         %li
           = link_to t('logout'), destroy_user_session_path, method: :delete
       - else
-        / %li
-        /   %a{:href => user_omniauth_authorize_path(:renren)}
-        /     %img{:src => "http://wiki.dev.renren.com/mediawiki/images/a/a2/%E8%BF%9E%E6%8E%A5%E6%8C%89%E9%92%AE2_%E8%93%9D%E8%89%B2133x22.png"}
         %li
           = link_to t('signup'), new_registration_path(:user)
-        / %li
-        /   = link_to t('login'), new_session_path(:user)
         %li.dropdown
           %a{:href => "/", :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
             = t('choose_login')

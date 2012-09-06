@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  prepend_before_filter :authenticate_scope!,  :only => [:edit, :update, :destroy, :update_password, :edit_password, :complete_info, :update_complete_info]
   before_filter :user_complete_info?, :only => [:update_complete_info, :complete_info]
 
   def update
@@ -33,8 +34,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_complete_info
     @user = User.find(current_user.id)
-    if current_user.update_attributes(params[:user].merge(:complete_info => true))
-      sign_in(@current_user, :bypass => true)
+    if @user.update_attributes(params[:user].merge(:complete_info => true))
+      sign_in(@user, :bypass => true)
       redirect_to :root
     else
       render :complete_info

@@ -29,6 +29,7 @@ zh-CN:
     name:                   "名字"
     email:                  "邮箱"
     password:               "密码"
+    current_password:       "当前密码"
     password_confirmation:  "重复密码"
     public_email:           "公开邮箱"
     remember_me:            "记住我"

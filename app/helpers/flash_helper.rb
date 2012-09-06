@@ -5,7 +5,7 @@ module FlashHelper
       c << content_tag(:h4, t('user.renren_authentication_success'), :class => 'alert-heading')
       c << content_tag(:p, t('user.complete_info_description'))
       c << contents_tag(:p) do |pc|
-        pc << link_to(t('do_right_now'), user_complete_info_path, :class => 'btn btn-primary')
+        pc << link_to(t('do_right_now'), users_update_complete_info_path, :class => 'btn btn-primary')
       end
     end
   end
