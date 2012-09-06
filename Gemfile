@@ -25,6 +25,10 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :test do
+  gem 'turn'
+end
+
 group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
