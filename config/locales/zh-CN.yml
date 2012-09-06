@@ -4,6 +4,7 @@ zh-CN:
   signup: "注册"
   login:  "登录"
   logout: "注销"
+  admin_root: "管理"
 
   choose_login:  "选择登录方式"
   local_login:   "本站帐号登录"
