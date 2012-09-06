@@ -74,8 +74,4 @@ class User < ActiveRecord::Base
         provider: auth.provider,
         uid:      auth.uid).attributes])
   end
-
-  def admin?
-    false
-  end
 end
