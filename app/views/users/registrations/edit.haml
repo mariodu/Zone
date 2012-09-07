@@ -19,6 +19,10 @@
               = f.label :public_email, t('user.public_email'), :class => 'control-label'
               .controls
                 = f.check_box :public_email
+            .control-group
+              = f.label :school_id, t('user.school'), :class => 'control-label'
+              .controls
+                = f.select :school_id, School.all.collect {|s| [ s.name, s.id.to_i ] }, { :include_blank => true }
             .form-actions
               = f.submit t('user.edit_info'), :class => 'btn btn-primary'
         / %h3 Cancel my account

@@ -15,6 +15,7 @@ zh-CN:
     info:     "资料"
     settings: "设置"
     zone:     "空间"
+    school:   "学校"
 
     signup:         "注册新用户"
     commit_signup_info: "提交注册信息"

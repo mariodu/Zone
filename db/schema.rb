@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906050152) do
+ActiveRecord::Schema.define(:version => 20880000000000) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -34,15 +34,21 @@ ActiveRecord::Schema.define(:version => 20120906050152) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "schools", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "name",                                      :null => false
     t.boolean  "public_email",           :default => false, :null => false
     t.string   "head_url"
-    t.string   "university"
     t.boolean  "complete_info",          :default => true,  :null => false
     t.boolean  "admin",                  :default => false, :null => false
+    t.integer  "school_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

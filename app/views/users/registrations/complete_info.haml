@@ -19,5 +19,10 @@
               = f.label :password_confirmation, t('user.password_confirmation'), :class => 'control-label'
               .controls
                 = f.password_field :password_confirmation, :placeholder => "Password"
-              .form-actions
-                = f.submit t('user.complete_info'), :class => 'btn btn-primary'
+            - unless @user.school
+              .control-group
+                = f.label :school_id, t('user.school'), :class => 'control-label'
+                .controls
+                  = f.select :school_id, School.all.collect {|s| [ s.name, s.id.to_i ] }, { :include_blank => true }
+            .form-actions
+              = f.submit t('user.complete_info'), :class => 'btn btn-primary'

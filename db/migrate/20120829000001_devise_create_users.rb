@@ -6,12 +6,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, :null => false, :default => ""
 
       ## Zone
-      t.string  :name,              :null => false
-      t.boolean :public_email,      :null => false, :default => false
-      t.string  :head_url,          :null => true
-      t.string  :university,        :null => true
-      t.boolean :complete_info,     :null => false, :default => true
-      t.boolean :admin,             :null => false, :default => false
+      t.string     :name,           :null => false
+      t.boolean    :public_email,   :null => false, :default => false
+      t.string     :head_url,       :null => true
+      t.boolean    :complete_info,  :null => false, :default => true
+      t.boolean    :admin,          :null => false, :default => false
+      t.references :school,         :null => true
 
       ## Recoverable
       t.string   :reset_password_token

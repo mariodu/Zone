@@ -8,9 +8,12 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :name, :authentications_attributes,
-                  :public_email, :head_url, :university, :complete_info
+                  :public_email, :head_url, :university, :complete_info,
+                  :school_id, :school
 
-  has_many :authentications
+  has_many   :authentications
+  belongs_to :school
+
   accepts_nested_attributes_for :authentications
 
   validates :name,
@@ -59,6 +62,7 @@ class User < ActiveRecord::Base
 
     renren_base = Renren::Base.new(auth['credentials']['token'])
     user_info   = renren_base.call_method(:method => 'users.getInfo', :fields => fields.join(',')).first
+    school      = School.find_by_name(user_info['university_history'].last['name'])
 
     password = Devise.friendly_token[0,20]
     create!(
@@ -66,8 +70,8 @@ class User < ActiveRecord::Base
       :email    => "#{auth.uid}@#{auth.provider}.zone",
       :password => password,
       :password_confirmation => password,
-      :head_url   => user_info['headurl'],
-      :university => user_info['university_history'].last['name'],
+      :head_url => user_info['headurl'],
+      :school   => school,
       :complete_info => false,
       :authentications_attributes => [
       Authentication.new(

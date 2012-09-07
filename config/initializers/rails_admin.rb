@@ -81,50 +81,63 @@ RailsAdmin.config do |config|
   # Your model's configuration, to help you get started:
 
   # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
+  config.model School do
+    # Found associations:
+      configure :id,         :integer
+      configure :name,       :string
+      configure :created_at, :datetime
+      configure :updated_at, :datetime   #   # Sections:
+    list do; end
+    export do; end
+    show do; end
+    edit do; end
+    create do; end
+    update do; end
+  end
 
-  # config.model Authentication do
-  #   # Found associations:
-  #     configure :user, :belongs_to_association   #   # Found columns:
-  #     configure :id, :integer
-  #     configure :user_id, :integer         # Hidden
-  #     configure :provider, :string
-  #     configure :uid, :string
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model User do
-  #   # Found associations:
-  #     configure :authentications, :has_many_association   #   # Found columns:
-  #     configure :id, :integer
-  #     configure :email, :string
-  #     configure :password, :password         # Hidden
-  #     configure :password_confirmation, :password         # Hidden
-  #     configure :reset_password_token, :string         # Hidden
-  #     configure :name, :string
-  #     configure :public_email, :boolean
-  #     configure :head_url, :string
-  #     configure :university, :string
-  #     configure :complete_info, :boolean
-  #     configure :reset_password_sent_at, :datetime
-  #     configure :remember_created_at, :datetime
-  #     configure :sign_in_count, :integer
-  #     configure :current_sign_in_at, :datetime
-  #     configure :last_sign_in_at, :datetime
-  #     configure :current_sign_in_ip, :string
-  #     configure :last_sign_in_ip, :string
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+  config.model Authentication do
+    # Found associations:
+      configure :user,       :belongs_to_association   #   # Found columns:
+      configure :id,         :integer
+      configure :user_id,    :integer         # Hidden
+      configure :provider,   :string
+      configure :uid,        :string
+      configure :created_at, :datetime
+      configure :updated_at, :datetime   #   # Sections:
+    list do; end
+    export do; end
+    show do; end
+    edit do; end
+    create do; end
+    update do; end
+  end
+
+  config.model User do
+    # Found associations:
+      configure :authentications,        :has_many_association   #   # Found columns:
+      configure :id,                     :integer
+      configure :email,                  :string
+      configure :password,               :password      # Hidden
+      configure :password_confirmation,  :password      # Hidden
+      configure :reset_password_token,   :string        # Hidden
+      configure :name,                   :string
+      configure :public_email,           :boolean
+      configure :head_url,               :string
+      configure :complete_info,          :boolean
+      configure :reset_password_sent_at, :datetime
+      configure :remember_created_at,    :datetime
+      configure :sign_in_count,          :integer
+      configure :current_sign_in_at,     :datetime
+      configure :last_sign_in_at,        :datetime
+      configure :current_sign_in_ip,     :string
+      configure :last_sign_in_ip,        :string
+      configure :created_at,             :datetime
+      configure :updated_at,             :datetime   #   # Sections:
+    list do; end
+    export do; end
+    show do; end
+    edit do; end
+    create do; end
+    update do; end
+  end
 end
