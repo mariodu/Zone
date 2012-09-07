@@ -6,26 +6,9 @@
           = form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-horizontal", :method => :put }, :validate => true do |f|
             = devise_error_messages!
             %legend= t('user.edit_info')
-            .control-group
-              = f.label :name, t('user.name'), :class => 'control-label'
-              .controls
-                = f.text_field :name, :placeholder => "Name"
-                %span.help-block= t('user.form_helper.name')
-            .control-group
-              = f.label :email, t('user.email'), :class => 'control-label'
-              .controls
-                %span.input-xlarge.uneditable-input= f.object.email
-            .control-group
-              = f.label :public_email, t('user.public_email'), :class => 'control-label'
-              .controls
-                = f.check_box :public_email
-            .control-group
-              = f.label :school_id, t('user.school'), :class => 'control-label'
-              .controls
-                = f.select :school_id, School.all.collect {|s| [ s.name, s.id.to_i ] }, { :include_blank => true }
-            .form-actions
-              = f.submit t('user.edit_info'), :class => 'btn btn-primary'
-        / %h3 Cancel my account
-        / %p
-        /   Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
-        / = link_to "Back", :back
+            = form_text_field     f, :name,  :helper_block => t('user.helper_block.name')
+            = form_uneditable_text_field f, :email
+            = form_check_box      f, :public_email
+            = form_select         f, :school_id, :include_blank => true, :label_text => t('user.school'), :select_options => School.all.collect {|s| [ s.name, s.id.to_i ] }
+            = form_submit         f, t('user.edit_info')
+/   Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.

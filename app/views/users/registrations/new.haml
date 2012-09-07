@@ -1,4 +1,3 @@
-
 #main
   .container
     .row
@@ -6,31 +5,10 @@
         %section#signup-form
           = form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-horizontal" }, :validate => true do |f|
             %legend= t('user.signup')
-            .control-group
-              = f.label :email, t('user.email'), :class => 'control-label'
-              .controls
-                = f.text_field :email, :placeholder => "Email", :class => 'input-xlarge'
-                %span.help-block= t('user.form_helper.email')
-            .control-group
-              = f.label :password, t('user.password'), :class => 'control-label'
-              .controls
-                = f.password_field :password, :placeholder => "Password"
-            .control-group
-              = f.label :password_confirmation, t('user.password_confirmation'), :class => 'control-label'
-              .controls
-                = f.password_field :password_confirmation, :placeholder => "Password"
-            .control-group
-              = f.label :name, t('user.name'), :class => 'control-label'
-              .controls
-                = f.text_field :name, :placeholder => "Name"
-                %span.help-block= t('user.form_helper.name')
-            .control-group
-              = f.label :public_email, t('user.public_email'), :class => 'control-label'
-              .controls
-                = f.check_box :public_email
-            .control-group
-              = f.label :school_id, t('user.school'), :class => 'control-label'
-              .controls
-                = f.select :school_id, School.all.collect {|s| [ s.name, s.id.to_i ] }, { :include_blank => true }
-            .form-actions
-              = f.submit t('user.commit_signup_info'), :class => 'btn btn-primary'
+            = form_text_field     f, :email, :helper_block => t('user.helper_block.email'), :input_class => 'input-xlarge'
+            = form_password_field f, :password
+            = form_password_field f, :password_confirmation, :placeholder => 'Password'
+            = form_text_field     f, :name, :helper_block => t('user.helper_block.name')
+            = form_check_box      f, :public_email
+            = form_select         f, :school_id, :include_blank => true, :label_text => t('user.school'), :select_options => School.all.collect {|s| [ s.name, s.id.to_i ] }
+            = form_submit         f, t('user.commit_signup_info')

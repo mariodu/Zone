@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                   :public_email, :head_url, :university, :complete_info,
                   :school_id, :school
 
-  has_many   :authentications
+  has_many   :authentications, :dependent => :destroy
   belongs_to :school
 
   accepts_nested_attributes_for :authentications
@@ -66,13 +66,13 @@ class User < ActiveRecord::Base
 
     password = Devise.friendly_token[0,20]
     create!(
-      :name     => user_info['name'],
-      :email    => "#{auth.uid}@#{auth.provider}.zone",
-      :password => password,
+      :name                  => user_info['name'],
+      :email                 => "#{auth.uid}@#{auth.provider}.zone",
+      :password              => password,
       :password_confirmation => password,
-      :head_url => user_info['headurl'],
-      :school   => school,
-      :complete_info => false,
+      :head_url              => user_info['headurl'],
+      :school                => school,
+      :complete_info         => false,
       :authentications_attributes => [
       Authentication.new(
         provider: auth.provider,

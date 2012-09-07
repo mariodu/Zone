@@ -40,6 +40,6 @@ zh-CN:
     validation_email_presence:   "请输入常用的邮箱"
     validation_user_password_confirmation:  "两次输入的密码不一致"
 
-    form_helper:
+    helper_block:
       name:  "这是你在网站上的昵称"
       email: "保存以后就不可以改了哦！"
