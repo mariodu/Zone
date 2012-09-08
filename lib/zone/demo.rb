@@ -1,7 +1,11 @@
 module Zone
   class Demo
     def initialize
-      create_admin :dvd, 'davidqhr@gmail.com', '123456'
+      david = create_admin :dvd, 'davidqhr@gmail.com', '123456'
+      FactoryGirl.create(:topic, fonder: david)
+      FactoryGirl.create(:topic, fonder: david)
+      FactoryGirl.create(:topic, fonder: david)
+      FactoryGirl.create(:topic, fonder: david)
     end
 
     def create_user(name, email, password)

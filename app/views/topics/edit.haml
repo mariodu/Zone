@@ -1,0 +1,10 @@
+#main
+  .container
+    .row
+      #mainbar.span7
+        %section#editor.box
+          = form_for @topic, :validate => true do |f|
+            = render :partial => 'form', :object => f
+            .control-group= f.submit t('update'), :class => 'btn primary'
+      #sidebar.span3
+        = render :partial => 'shared/sidebar_profile'

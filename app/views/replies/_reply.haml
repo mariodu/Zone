@@ -1,0 +1,17 @@
+%tr.reply{:id => reply.anchor}
+  %td.avatar= link_avatar_to_user(reply.user,:size => 48)
+  %td.content
+    %article
+      %header.clearbox
+        .left
+          = link_to_user reply.user
+        .right
+          = format_time reply.created_at
+          - if reply.edited?
+            = t('updated_at')
+            = format_time reply.updated_at
+          - if user_signed_in?
+            - if reply.user == current_user
+              = link_to t('edit'), edit_reply_path(reply)
+            = link_to '@', '#new_reply', :class => 'at', 'data-user-name' => reply.user.name
+      ~ format_text reply.content

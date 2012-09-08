@@ -1,0 +1,28 @@
+#main
+  .container
+    .row
+      #mainbar.span7
+        - if @topics.any?
+          %section#topics.box.no-padding
+            %table.item-list
+              %tbody
+                = render :partial => 'topic', :collection => @topics
+          = paginate @topics
+        - else
+          %section.box
+            = t '.no_topics'
+      #sidebar.span3
+        - if false && logined?
+          = render :partial => 'shared/sidebar_profile'
+          %section.box
+            - if action_name == 'tagged'
+              = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn btn-primary'
+            - else
+              = link_to t('.create_topic'), new_topic_path, :class => 'btn btn-primary'
+        - else
+          / = render :partial => 'shared/sidebar_login'
+        - if %w(index newest tagged).include?(action_name)
+          %section.box
+            %header= t('.subscribe')
+            /= link_to image_tag('rss.png'), subscribe_url
+        /= raw @site.fragment.topics_sidebar_bottom

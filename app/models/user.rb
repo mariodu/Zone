@@ -11,14 +11,16 @@ class User < ActiveRecord::Base
                   :public_email, :head_url, :university, :complete_info,
                   :school_id, :school
 
-  has_many   :authentications, :dependent => :destroy
+  has_many :authentications, :dependent => :destroy
+  has_many :topics, :foreign_key => 'fonder_id'
+  has_many :replies
   belongs_to :school
 
   accepts_nested_attributes_for :authentications
 
   validates :name,
     :presence     => { :message => I18n.t('user.validation_name_presence') },
-    :length       => { :message => I18n.t('user.validation_name_length'), :in => 2..4}
+    :length       => { :message => I18n.t('user.validation_name_length'), :in => 2..10}
   validates :email,
     :format       => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/},
     :presence     => { :message => I18n.t('user.validation_email_presence') },

@@ -1,0 +1,56 @@
+#main
+  .container
+    .row
+      #mainbar.span7
+        %section#topic.box
+          %article{:id => @topic.fonder}
+            %header
+              %table
+                %tbody
+                  %tr
+                    %td
+                      %h1= @topic.title
+                      - if @topic.tags.any?
+                        %span.tags
+                          - @topic.tags.each do |tag|
+                            = link_to tag.name, "tagged_topics_path(:tag => tag)"
+                      %span.author
+                        = link_to_user @topic.fonder
+                      %span.time
+                        = t('created_at')
+                        = format_time @topic.created_at
+                        - if false && @topic.edited?
+                          = t('updated_at')
+                          = format_time @topic.edited_at
+                      - if user_signed_in? && current_user == @topic.fonder
+                        = link_to t('edit'), edit_topic_path(@topic)
+                    %td.avatar
+                      = link_avatar_to_user(@topic.fonder, :size => 72)
+            ~ format_text @topic.content
+            %footer
+        %section#replies.box.no-padding
+          %table.item-list
+            %tbody
+              = render :partial => 'replies/reply', :collection => @replies
+        / = paginate @replies
+        - if user_signed_in?
+          %section#editor.box
+            %h4= t('.post_reply')
+            = form_for @reply, :url => replies_path(:topic_id => @topic), :remote => true do |f|
+              = render :partial => 'replies/form', :object => f
+              .control-group= f.submit t('submit'), :class => 'btn btn-primary'
+              /, :data => {:disable_with => t('form_disable_with')}
+
+      #sidebar.span3
+        - if user_signed_in?
+          = render :partial => 'shared/sidebar_profile'
+        %section.box
+          %header
+            = t('.relate_topics')
+          .content
+            - if false && @relate_topics.any?
+              %ul.nice-list
+                - @relate_topics.each do |topic|
+                  %li= link_to topic.title, topic
+            - else
+              = t('.no_relate_topics')

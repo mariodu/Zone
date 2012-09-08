@@ -5,6 +5,7 @@ FactoryGirl.define do
     password              'password'
     password_confirmation { password }
 
+    head_url "/assets/654.jpg"
     complete_info false
     admin false
   end

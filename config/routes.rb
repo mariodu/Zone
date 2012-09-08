@@ -18,6 +18,8 @@ Zone::Application.routes.draw do
     put "users/update_complete_info", :to => "users/registrations#update_complete_info"
   end
 
+  resources :topics
+  resources :replies
   resources :users
 
   # The priority is based upon order of creation:

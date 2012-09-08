@@ -1,0 +1,10 @@
+#main
+  .container
+    .row
+      #mainbar.span7
+        %section#editor.box
+          = form_for @reply, :url => reply_path(@reply, :return_to => @return_to) do |f|
+            = render :partial => 'form', :object => f
+            .clearfix= f.submit t('update'), :class => 'btn btn-primary'
+      #sidebar.span3
+        = render :partial => 'shared/sidebar_profile'

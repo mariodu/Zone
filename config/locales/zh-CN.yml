@@ -5,6 +5,10 @@ zh-CN:
   login:  "登录"
   logout: "注销"
   admin_root: "管理"
+  submit:     "提交"
+  update:     "修改"
+  title_placeholder: '标题'
+  tags_placeholder: '标签'
 
   choose_login:  "选择登录方式"
   local_login:   "本站帐号登录"

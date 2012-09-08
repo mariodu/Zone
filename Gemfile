@@ -4,15 +4,18 @@ gem 'rails', '3.2.7'
 
 gem 'sqlite3'
 gem 'devise'
-#gem "redcarpet"
-#gem "wmd-rails"
+gem "redcarpet"
+gem "wmd-rails"
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem "rails-i18n"
 gem 'jquery-rails',             '2.0.2'
+gem 'kaminari'
 
 gem 'rails_admin'
+
+gem 'rails-timeago'
 
 gem 'omniauth'
 gem 'omniauth-renren', '~> 1.0.0.rc2', :git => 'git://github.com/huangxiangdan/omniauth-renren.git'

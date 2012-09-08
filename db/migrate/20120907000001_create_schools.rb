@@ -1,6 +1,6 @@
 class CreateSchools < ActiveRecord::Migration
   def change
-    create_table :schools do |t|
+    create_table :schools, :force => true do |t|
       t.string :name
 
       t.timestamps

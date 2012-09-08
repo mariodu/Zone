@@ -34,11 +34,44 @@ ActiveRecord::Schema.define(:version => 20880000000000) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "replies", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags_topics", :id => false, :force => true do |t|
+    t.integer "topic_id", :null => false
+    t.integer "tag_id",   :null => false
+  end
+
+  add_index "tags_topics", ["tag_id"], :name => "index_tag_id"
+  add_index "tags_topics", ["topic_id"], :name => "index_topic_id"
+
+  create_table "topics", :force => true do |t|
+    t.string   "title",      :limit => 64, :null => false
+    t.integer  "fonder_id",                :null => false
+    t.text     "content",                  :null => false
+    t.datetime "edited_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "topics", ["fonder_id"], :name => "index_find_topic_by_fonder_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
