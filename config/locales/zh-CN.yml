@@ -7,6 +7,11 @@ zh-CN:
   admin_root: "管理"
   submit:     "提交"
   update:     "修改"
+  created_at: "创建于"
+  updated_at: "修改于"
+  replied_at: "回复于"
+
+  topic:      "社区"
   title_placeholder: '标题'
   tags_placeholder: '标签'
 

@@ -19,7 +19,7 @@
                       %span.time
                         = t('created_at')
                         = format_time @topic.created_at
-                        - if false && @topic.edited?
+                        - if @topic.edited?
                           = t('updated_at')
                           = format_time @topic.edited_at
                       - if user_signed_in? && current_user == @topic.fonder

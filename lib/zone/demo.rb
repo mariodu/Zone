@@ -9,11 +9,11 @@ module Zone
     end
 
     def create_user(name, email, password)
-      FactoryGirl.create(:user, name: name, email: email, password: password)
+      FactoryGirl.create(:user, name: name, email: email, password: password, complete_info: true)
     end
 
     def create_admin(name, email, password)
-      FactoryGirl.create(:user, name: name, email: email, password: password, admin: true)
+      FactoryGirl.create(:user, name: name, email: email, password: password, admin: true, complete_info: true)
     end
   end
 end

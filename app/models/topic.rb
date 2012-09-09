@@ -27,4 +27,8 @@ class Topic < ActiveRecord::Base
   def set_edited_at
     self.edited_at = Time.now.utc
   end
+
+  def edited?
+    self.edited_at.present?
+  end
 end

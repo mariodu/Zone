@@ -14,11 +14,11 @@
       %span.time
         = t 'created_at'
         = format_time topic.created_at
-        - if false && topic.replies_count > 0
+        - if topic.replies.count > 0
           ,
-          = link_to_person(topic.last_reply_user)
+          = link_to_user(topic.replies.last.user)
           = t 'replied_at'
-          = format_time topic.actived_at
+          = format_time topic.replies.last.created_at
   %td.reply-count.last
-    - if false && topic.replies_count > 0
-      = link_to topic.replies_count, topic_path(topic, :page => topic.last_page), :class => ((logined? && topic.last_read?(current_user)) ? 'read' : nil)
+    - if topic.replies.count > 0
+      = link_to topic.replies.count, topic_path(topic), :class => ((user_signed_in? && "topic.last_read?(current_user)" && false) ? 'read' : nil)
