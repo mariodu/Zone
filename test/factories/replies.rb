@@ -3,6 +3,5 @@
 FactoryGirl.define do
   factory :reply do
     content "MyString"
-    user ""
   end
 end

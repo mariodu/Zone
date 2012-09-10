@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(:version => 20880000000000) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "replies", ["topic_id"], :name => "index_find_reply_by_topic_id"
+  add_index "replies", ["user_id"], :name => "index_find_reply_by_user_id"
+
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -53,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20880000000000) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "tags", ["name"], :name => "index_find_tag_by_name"
 
   create_table "tags_topics", :id => false, :force => true do |t|
     t.integer "topic_id", :null => false

@@ -8,7 +8,7 @@
       - if topic.tags.any?
         %span.tags
           - topic.tags.each do |tag|
-            = link_to tag.name, 'tagged_topics_path(:tag => tag)'
+            = link_to tag.name, tagged_topics_path(:tag => tag.name)
       %span.author
         = link_to_user(topic.fonder)
       %span.time
@@ -21,4 +21,4 @@
           = format_time topic.replies.last.created_at
   %td.reply-count.last
     - if topic.replies.count > 0
-      = link_to topic.replies.count, topic_path(topic), :class => ((user_signed_in? && "topic.last_read?(current_user)" && false) ? 'read' : nil)
+      = link_to topic.replies.count, topic_path(topic), :class => ((user_signed_in? && false) ? 'read' : nil)

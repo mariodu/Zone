@@ -1,10 +1,10 @@
 class Topic < ActiveRecord::Base
   attr_accessible :title, :content, :tag_string
 
-  belongs_to :fonder, :class_name => "User"
   has_many :replies, :dependent => :restrict
+  belongs_to :fonder, :class_name => "User"
 
-  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :tags#, :dependent => :destroy
 
   validates :title, :content, :fonder, :presence => true
 

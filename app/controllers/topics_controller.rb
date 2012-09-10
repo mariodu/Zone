@@ -1,13 +1,13 @@
 class TopicsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index, :tagged]
 
   def index
-    @topics = Topic.page(params[:page]).per(10).order('created_at desc')
+    @topics = Topic.order('created_at desc').page(params[:page]).per(15)
   end
 
   def show
     @topic = Topic.find(params[:id])
-    @replies = @topic.replies.page(params[:page]).per(20)
+    @replies = @topic.replies
     @reply = current_user.replies.new :topic => @topic if current_user
   end
 
@@ -37,5 +37,11 @@ class TopicsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def tagged
+    tag = Tag.find_by_name!(params[:tag])
+    @topics = tag.topics.order('created_at desc').page(params[:page]).per(15)
+    render :index
   end
 end

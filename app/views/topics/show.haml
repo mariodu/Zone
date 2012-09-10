@@ -13,7 +13,7 @@
                       - if @topic.tags.any?
                         %span.tags
                           - @topic.tags.each do |tag|
-                            = link_to tag.name, "tagged_topics_path(:tag => tag)"
+                            = link_to tag.name, tagged_topics_path(:tag => tag.name)
                       %span.author
                         = link_to_user @topic.fonder
                       %span.time
@@ -32,7 +32,6 @@
           %table.item-list
             %tbody
               = render :partial => 'replies/reply', :collection => @replies
-        / = paginate @replies
         - if user_signed_in?
           %section#editor.box
             %h4= t('.post_reply')
