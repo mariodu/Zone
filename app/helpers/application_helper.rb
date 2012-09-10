@@ -1,5 +1,9 @@
 #ecoding: utf-8
 module ApplicationHelper
+  def page_title
+    I18n.t("title.#{params[:controller].sub('/', '_')}_#{params[:action]}")
+  end
+
   def display_notice_and_alert
     return send(flash[:special]) if flash[:special]
     msg = ''

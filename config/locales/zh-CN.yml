@@ -53,3 +53,20 @@ zh-CN:
     helper_block:
       name:  "这是你在网站上的昵称"
       email: "保存以后就不可以改了哦！"
+
+  reply:
+    validation_content_presence: "评论内容不能为空"
+
+  title:
+    home_index:                        "Zone | 首页"
+    topics_index:                      "Zone | 社区"
+    topics_show:                       "Zone | 查看话题"
+    topics_edit:                       "Zone | 修改话题"
+    topics_new:                        "Zone | 创建话题"
+    topics_tagged:                     "Zone | 标签话题"
+    replies_edit:                      "Zone | 修改回复"
+    devise_sessions_new:               "Zone | 登录"
+    users_registrations_new:           "Zone | 注册"
+    users_registrations_edit:          "Zone | 修改资料"
+    users_registrations_edit_password: "Zone | 修改密码"
+    users_registrations_complete_info: "Zone | 完善资料"

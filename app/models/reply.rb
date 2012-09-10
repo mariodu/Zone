@@ -4,7 +4,7 @@ class Reply < ActiveRecord::Base
   belongs_to :topic
 
   validates :content,
-    :presence     => { :message => I18n.t('user.validation_name_presence') }
+    :presence => { :message => I18n.t('reply.validation_content_presence') }
 
   def anchor
     "reply-#{self.id}"
